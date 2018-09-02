@@ -50,14 +50,14 @@ export default class Win_login extends cc.Component {
     }
 
     private onLoginBtnClicked() {
-        if(this.nameEditBox.string){
-         this.name = this.nameEditBox.string 
-        }
-        if(this.passwordEditBox){
-            this.passWord =  this.passwordEditBox.string;
-        }
-        cc.log(this.passWord+"dsdsa"+this.name);
-        
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+                var response = xhr.responseText;
+                console.log(response);
+            }
+        };
+        xhr.open("GET", "http://192.168.42.247:5000/login", true);
     }
 
 

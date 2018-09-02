@@ -23,6 +23,10 @@ export default class Prefab_Alert extends cc.Component {
         this.closeBtn.node.on("click", this.onCloseBtnClicked, this);
     }
 
+    onDisable(){
+        this.closeBtn.node.off("click", this.onCloseBtnClicked, this);
+    }
+
     onCloseBtnClicked(){
         this.node.removeFromParent();
     }
