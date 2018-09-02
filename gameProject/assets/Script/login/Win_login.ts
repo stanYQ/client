@@ -8,12 +8,24 @@ export default class Win_login extends cc.Component {
     loginBtn: cc.Button = null;
 
     @property({
+        type: cc.EditBox,
+        tooltip: "用户名输入框"
+    })
+    nameEditBox: cc.EditBox = null;
+
+    @property({
+        type: cc.EditBox,
+        tooltip: "密码输入框"
+    })
+    passwordEditBox: cc.EditBox = null;
+
+    @property({
         type: cc.Button,
         tooltip: "退出按钮"
     })
     closeBtn: cc.Button = null;
 
-    onEnable() {
+    onLoad() {
         this.Monitor();
     }
 
@@ -32,10 +44,20 @@ export default class Win_login extends cc.Component {
     }
 
     private onLoginBtnClicked() {
-        cc.log(111111);
+        if(this.nameEditBox.string){
+         this.name = this.nameEditBox.string 
+        }
+        if(this.passwordEditBox){
+            this.passWord =  this.passwordEditBox.string;
+        }
+        cc.log(this.passWord+"dsdsa"+this.name);
     }
 
+
     private onCloseBtnClicked() {
-        cc.log(22222);
+        cc.game.end();
     }
+
+    public name: string;
+    public passWord: string;
 }
