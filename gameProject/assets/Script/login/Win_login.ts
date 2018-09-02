@@ -25,6 +25,12 @@ export default class Win_login extends cc.Component {
     })
     closeBtn: cc.Button = null;
 
+    @property({
+        type: cc.Prefab,
+        tooltip: "提示框"
+    })
+    tipPrefab: cc.Prefab = null;
+
     onLoad() {
         this.Monitor();
     }
@@ -51,11 +57,13 @@ export default class Win_login extends cc.Component {
             this.passWord =  this.passwordEditBox.string;
         }
         cc.log(this.passWord+"dsdsa"+this.name);
+        
     }
 
 
     private onCloseBtnClicked() {
-        cc.game.end();
+        const Prefab = cc.instantiate(this.tipPrefab);
+        this.node.addChild(Prefab);
     }
 
     public name: string;
