@@ -15,6 +15,7 @@ export default class Prefab_Game extends cc.Component {
 
     onLoad() {
         this.btn.node.on("click", this.onBtnClicked, this);
+        this.node.color = cc.color(250,250,250);
     }
 
     initWithData(name: string ) {
@@ -26,6 +27,7 @@ export default class Prefab_Game extends cc.Component {
     }
 
     private onBtnClicked() {
+        this.node.color = cc.color(105,105,105);
             if (this.gameName.string) {
                 switch (this.gameName.string) {
                     case gameType.planeMaster:
