@@ -50,14 +50,16 @@ export default class Win_login extends cc.Component {
     }
 
     private onLoginBtnClicked() {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
-                var response = xhr.responseText;
-                console.log(response);
-            }
-        };
-        xhr.open("GET", "http://192.168.42.247:5000/login", true);
+        // var xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+        //         var response = xhr.responseText;
+        //         console.log(response);
+        //     }
+        // };
+        // xhr.open("GET", "http://192.168.42.247:5000/login", true);
+        // xhr.send("name ="+this.name + "&id = "+this.passWord);
+        cc.director.loadScene("main");
     }
 
 
