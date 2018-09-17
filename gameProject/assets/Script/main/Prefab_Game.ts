@@ -15,29 +15,26 @@ export default class Prefab_Game extends cc.Component {
 
     onLoad() {
         this.btn.node.on("click", this.onBtnClicked, this);
-        this.node.color = cc.color(250,250,250);
+        this.node.color = cc.color(250, 250, 250);
     }
 
-    onDestroy(){
-        this.btn.node.on("click",this.onBtnClicked, this);
-    }
-    initWithData(name: string ) {
+    initWithData(name: string) {
         this.gameName.string = name;
     }
 
-    getName(){
+    getName() {
         return this.Name;
     }
 
     private onBtnClicked() {
-        this.node.color = cc.color(105,105,105);
-            if (this.gameName.string) {
-                switch (this.gameName.string) {
-                    case gameType.planeMaster:
-                        cc.director.loadScene(gameType.planeMaster);
-                        break;
-                }
+        this.node.color = cc.color(105, 105, 105);
+        if (this.gameName.string) {
+            switch (this.gameName.string) {
+                case gameType.planeMaster:
+                    cc.director.loadScene(gameType.planeMaster);
+                    break;
             }
+        }
     }
 
     private Name: string;

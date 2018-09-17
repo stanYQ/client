@@ -24,6 +24,10 @@ export default class Win_planeMain extends  cc.Component {
         this.closeBtn.node.on("click",this.onCloseBtnClicked, this);
     }
 
+    getWidth(){
+        return this.node.scale;
+    }
+
     private onStartBtnClicked(){
         cc.director.loadScene('planeGame');
     }

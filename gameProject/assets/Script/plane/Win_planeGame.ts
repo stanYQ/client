@@ -20,6 +20,7 @@ export default class Win_planeGame extends  cc.Component {
         this.bgList[0] = this.bg1;
         this.bgList[1] = this.bg2;
     }
+    
     update(dt){
         this.bgMove(this.bgList, this.bgSpeed);
     }

@@ -57,6 +57,23 @@ export default class Prefab_Game extends cc.Component {
         }
 
         // 根据当前速度更新主角的位置
+       
+        if(this.node.x >= 300 && this.accLeft === false){
+            this.node.x = 300;
+            this.xSpeed = 0;
+        }
+        if(this.node.x <= -300 && this.accRight === false){
+            this.node.x = -300;
+            this.xSpeed = 0;
+        }
+        if(this.node.y >= 548 && this.accDown ===false){
+            this.node.y = 548;
+            this.ySpeed = 0;
+        }
+        if(this.node.y <= -548 && this.accUp ===false){
+            this.node.y = -548;
+            this.ySpeed = 0;
+        }
         this.node.x += this.xSpeed * dt;
         this.node.y += this.ySpeed * dt;
     }
