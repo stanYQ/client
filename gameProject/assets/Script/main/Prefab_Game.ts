@@ -18,6 +18,9 @@ export default class Prefab_Game extends cc.Component {
         this.node.color = cc.color(250,250,250);
     }
 
+    onDestroy(){
+        this.btn.node.on("click",this.onBtnClicked, this);
+    }
     initWithData(name: string ) {
         this.gameName.string = name;
     }
