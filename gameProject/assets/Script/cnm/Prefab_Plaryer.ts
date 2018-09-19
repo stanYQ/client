@@ -33,6 +33,7 @@ export default class Prefab_Plaryer extends cc.Component {
         //键盘监听
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
+
     }
 
     update(dt){
@@ -83,12 +84,8 @@ export default class Prefab_Plaryer extends cc.Component {
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
     }
 
-    getNodeX(){
-        return this.node.x;
-    }
-
-    getNodeY(){
-        return this.node.y;
+    getPlaryer(){
+        return this.node.getPosition();
     }
 
     private onKeyDown(event) {
@@ -126,11 +123,15 @@ export default class Prefab_Plaryer extends cc.Component {
                 break;
         }
     }
-
+ppp(){
+    cc.log("asdas");
+}
     private accRight: boolean;
     private accLeft: boolean;
     private accUp: boolean;
     private accDown: boolean;
     private xSpeed: number;
     private ySpeed: number;
+    
 }
+export const Plaryer = new Prefab_Plaryer();

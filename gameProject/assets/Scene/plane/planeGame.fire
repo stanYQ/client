@@ -456,6 +456,15 @@
     },
     "playerNode": {
       "__id__": 9
+    },
+    "enemy1Prefab": {
+      "__uuid__": "f2015d55-56fc-4ba1-ac80-a5729ce78642"
+    },
+    "enemy2Prefab": {
+      "__uuid__": "175dbdf4-a092-4199-bebf-c7f3b63d95fb"
+    },
+    "enemy3Prefab": {
+      "__uuid__": "aa2a9635-1985-4df9-95b9-753857d87ca5"
     }
   }
 ]
