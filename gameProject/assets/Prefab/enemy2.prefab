@@ -90,15 +90,15 @@
     "_atlas": null
   },
   {
-    "__type__": "3f6aa1WZGJCzK0M0lUboxaA",
+    "__type__": "822a5AqgipLRqNWIrXVYOqY",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "bulletSpeed": 100,
-    "accely": 200
+    "bulletSpeed": 150,
+    "accely": 100
   },
   {
     "__type__": "cc.PrefabInfo",

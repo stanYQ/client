@@ -53,8 +53,8 @@
     "_scaleY": 0.8,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 7.9,
+      "y": -0.7
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -90,15 +90,15 @@
     "_atlas": null
   },
   {
-    "__type__": "0db02EfxApFNbq7YvGRV1cV",
+    "__type__": "822a5AqgipLRqNWIrXVYOqY",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "bulletSpeed": 150,
-    "accely": 250
+    "bulletSpeed": 50,
+    "accely": 50
   },
   {
     "__type__": "cc.PrefabInfo",

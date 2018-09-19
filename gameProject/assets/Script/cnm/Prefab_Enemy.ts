@@ -1,8 +1,10 @@
+import { Plaryer } from "./Prefab_Plaryer";
+
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
-export default class Prefab_Enemy3 extends cc.Component {
+export default class Prefab_Enemy extends cc.Component {
     @property({
-        tooltip:"飞机的速度"
+        tooltip:"子弹的速度"
     })
     bulletSpeed: number = 0;
 
@@ -14,9 +16,14 @@ export default class Prefab_Enemy3 extends cc.Component {
     update(dt){
        this.bulletSpeed += this.accely*dt; 
        this.node.y -= this.bulletSpeed * dt; 
-       if(this.node.y <= -650){
-           this.node.destroy();
-       }
     }
-   
+
+    getEnemy(){
+        return this.node.getPosition();
+    }
+
+    onPicked(){
+        this.node.destroy();
+    }
+
 }

@@ -1,5 +1,6 @@
 import Prefab_Plaryer from "../cnm/Prefab_Plaryer";
-import Prefab_Enemy1 from "../cnm/Prefab_Enemy1";
+import Prefab_Enemy from "../cnm/Prefab_Enemy";
+import Prefab_Bullet from "../cnm/Prefab_Bullet";
 
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
@@ -61,6 +62,33 @@ export default class Win_planeGame extends cc.Component {
 
     update(dt) {
         this.bgMove(this.bgList, this.bgSpeed);
+        const playerComp: Prefab_Plaryer = this.playerNode.getComponent(Prefab_Plaryer);
+        this.compList.forEach(value => {
+            if (value.getEnemy().y <= -650) {
+                this.compList.slice(this.compList.indexOf(value), 1);
+                this.node.removeChild(value.node);
+            }
+            const distance = this.getPlayerDistance(playerComp.getPlaryer(), value.getEnemy());
+            if (distance <= value.node.height / 2) {
+                this.compList.slice(this.compList.indexOf(value), 1);
+                this.node.removeChild(value.node);
+                return;
+            }
+            this.bulletList.forEach(bullet => {
+                const distance = this.getPlayerDistance(value.getEnemy(), bullet.getBullet());
+                if (bullet.getBullet().y >= 650) {
+                    this.bulletList.slice(this.bulletList.indexOf(bullet), 1);
+                    this.node.removeChild(bullet.node);
+                }
+                if (distance <= value.node.height / 2) {
+                    this.node.removeChild(value.node);
+                    this.node.removeChild(bullet.node);
+                    this.compList.slice(this.compList.indexOf(value), 1);
+                    this.bulletList.slice(this.bulletList.indexOf(bullet), 1);
+                    return;
+                }
+            });
+        });
     }
 
     private onKeyDown(event) {
@@ -88,6 +116,7 @@ export default class Win_planeGame extends cc.Component {
             bulletNode.x = playerComp.getPlaryer().x;
             bulletNode.y = playerComp.getPlaryer().y;
             this.node.addChild(bulletNode);
+            this.bulletList.push(bulletNode.getComponent(Prefab_Bullet));
         }
     }
 
@@ -121,30 +150,44 @@ export default class Win_planeGame extends cc.Component {
             const node = self.getUnUseNode(self.enemy1Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
-        },1);
+            const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
+            self.compList.push(enemy1Comp);
+        }, 1);
         this.schedule(function () {
             const node = self.getUnUseNode(self.enemy2Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
-        },3);
+            const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
+            self.compList.push(enemy1Comp);
+        }, 3);
         this.schedule(function () {
             const node = self.getUnUseNode(self.enemy3Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
-        },5);
+            const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
+            self.compList.push(enemy1Comp);
+        }, 5);
     }
 
     private getNewPosition() {
         var randX = 0;
         // 根据地平面位置和主角位置，随机得到敌机的 y 坐标
-        var randY = Math.random() * this.node.y ;
+        var randY = this.node.height / 2;
         var maxX = this.node.width / 2 - 20;
         randX = (Math.random() - 0.5) * 2 * maxX;
         return cc.v2(randX, randY);
     }
 
+    private getPlayerDistance(player: cc.Vec2, enemy: cc.Vec2) {
+        const playerPos = player;
+        const dist = enemy.sub(playerPos).mag();
+        return dist;
+    }
+
     private nodePool: cc.NodePool = new cc.NodePool;
     private bgList: cc.Node[] = [];
     private accFire: boolean;
+    private compList: Prefab_Enemy[] = [];
+    private bulletList: Prefab_Bullet[] = [];
 }
 export const uiPalnceGame = new Win_planeGame();

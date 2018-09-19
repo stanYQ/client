@@ -18,9 +18,9 @@ export default class Prefab_Bullet extends cc.Component {
     update(dt){
        this.bulletSpeed += this.accely*dt; 
        this.node.y += this.bulletSpeed * dt; 
-       if(this.node.y >= 650){
-           this.node.destroy();
-       }
     }
-   
+
+    getBullet(){
+        return this.node.getPosition();
+    }
 }

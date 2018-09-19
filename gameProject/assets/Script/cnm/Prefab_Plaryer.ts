@@ -123,9 +123,7 @@ export default class Prefab_Plaryer extends cc.Component {
                 break;
         }
     }
-ppp(){
-    cc.log("asdas");
-}
+    
     private accRight: boolean;
     private accLeft: boolean;
     private accUp: boolean;
