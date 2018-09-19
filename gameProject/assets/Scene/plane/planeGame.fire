@@ -408,7 +408,7 @@
     "_atlas": null
   },
   {
-    "__type__": "faf4dqMEg9BRpO9zDV1FCiW",
+    "__type__": "07561+uLP5AjI02Raa/QTCT",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -450,6 +450,12 @@
     "bg2": {
       "__id__": 6
     },
-    "bgSpeed": 0.6
+    "bgSpeed": 0.6,
+    "bulletPrefab": {
+      "__uuid__": "1a39ea6f-879e-4093-96c0-baccf8794009"
+    },
+    "playerNode": {
+      "__id__": 9
+    }
   }
 ]

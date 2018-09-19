@@ -1,6 +1,6 @@
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
-export default class Prefab_Game extends cc.Component {
+export default class Prefab_Plaryer extends cc.Component {
     @property({
         tooltip: "主角的x最大移动速度"
     })
@@ -81,6 +81,14 @@ export default class Prefab_Game extends cc.Component {
     onDestroy(){
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
+    }
+
+    getNodeX(){
+        return this.node.x;
+    }
+
+    getNodeY(){
+        return this.node.y;
     }
 
     private onKeyDown(event) {

@@ -1,3 +1,5 @@
+import Prefab_Plaryer from "../cnm/Prefab_Plaryer";
+
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
 export default class Win_planeGame extends  cc.Component {
@@ -16,13 +18,57 @@ export default class Win_planeGame extends  cc.Component {
     })
     bgSpeed: number = 0.6;
 
+    @property({
+        type: cc.Prefab,
+        tooltip: "子弹预设"
+    })
+    bulletPrefab: cc.Prefab = null;
+
+    @property({
+        type: cc.Node,
+        tooltip:"玩家预设"
+    })
+    playerNode: cc.Node = null;
+
     onLoad(){
         this.bgList[0] = this.bg1;
         this.bgList[1] = this.bg2;
+        this.accFire = false;
+         //键盘监听
+         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);   
     }
     
     update(dt){
         this.bgMove(this.bgList, this.bgSpeed);
+    }
+
+    private onKeyDown(event){
+        switch(event.keyCode){
+            case cc.KEY.j:
+               this.accFire = true;
+               this.bulletFire();
+            break;
+        }
+    }
+
+    private onKeyUp(event){
+        switch(event.keyCode){
+            case cc.KEY.j:
+                this.accFire = false;
+            break;
+        }
+
+    }
+
+    private bulletFire(){
+        if(this.accFire === true){
+            const playerComp:Prefab_Plaryer = this.playerNode.getComponent(Prefab_Plaryer);
+            const bulletNode = this.getUnUseNode();
+             bulletNode.x = playerComp.getNodeX(); 
+             bulletNode.y = playerComp.getNodeY();
+            this.node.addChild(bulletNode);
+        }
     }
 
     private bgMove(bgList, bgSpeed){
@@ -38,5 +84,18 @@ export default class Win_planeGame extends  cc.Component {
             bgList[1].y = 1136;
         }
     }
+
+    private getUnUseNode(){
+        let node: cc.Node = null;
+        if (this.nodePool.size() > 0) {
+            node = this.nodePool.get();
+        } else {
+            node = cc.instantiate(this.bulletPrefab);
+        }
+        return node;
+    }
+
+    private nodePool: cc.NodePool = new cc.NodePool;
     private bgList: cc.Node[] = [];
+    private accFire: boolean;
 }
