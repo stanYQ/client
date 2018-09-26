@@ -16,6 +16,12 @@ export default class Win_planeGame extends cc.Component {
     bg2: cc.Node = null;
 
     @property({
+        type: cc.Label,
+        tooltip: "玩家分数数值"
+    })
+    Score: cc.Label = null;
+    
+    @property({
         tooltip: "移动速度"
     })
     bgSpeed: number = 0.6;
@@ -51,6 +57,8 @@ export default class Win_planeGame extends cc.Component {
     enemy3Prefab: cc.Prefab = null;
 
     onLoad() {
+        this.scoreNow = 0;
+        this.Score.string = this.scoreNow.toString();
         this.bgList[0] = this.bg1;
         this.bgList[1] = this.bg2;
         this.accFire = false;
@@ -65,30 +73,42 @@ export default class Win_planeGame extends cc.Component {
         const playerComp: Prefab_Plaryer = this.playerNode.getComponent(Prefab_Plaryer);
         this.compList.forEach(value => {
             if (value.getEnemy().y <= -650) {
-                this.compList.slice(this.compList.indexOf(value), 1);
-                this.node.removeChild(value.node);
+                value.node.x = 10000;
+                value.node.y = 10000;
             }
             const distance = this.getPlayerDistance(playerComp.getPlaryer(), value.getEnemy());
-            if (distance <= value.node.height / 2) {
-                this.compList.slice(this.compList.indexOf(value), 1);
-                this.node.removeChild(value.node);
-                return;
+            if (distance <= value.node.width) {
+                value.node.x = 10000;
+                value.node.y = 10000;
             }
             this.bulletList.forEach(bullet => {
                 const distance = this.getPlayerDistance(value.getEnemy(), bullet.getBullet());
                 if (bullet.getBullet().y >= 650) {
-                    this.bulletList.slice(this.bulletList.indexOf(bullet), 1);
-                    this.node.removeChild(bullet.node);
+                    bullet.node.y = 200000;
+                    bullet.node.x = 100000;
                 }
                 if (distance <= value.node.height / 2) {
-                    this.node.removeChild(value.node);
-                    this.node.removeChild(bullet.node);
-                    this.compList.slice(this.compList.indexOf(value), 1);
-                    this.bulletList.slice(this.bulletList.indexOf(bullet), 1);
-                    return;
+                    if (value.getTime() < value.getBlood()) {
+                        value.addTime();
+                        bullet.node.y = 200000;
+                        bullet.node.x = 100000;
+                    
+                    } 
+                    if(value.getTime() === value.getBlood()) {
+                        value.node.x = 10000;
+                        value.node.y = 10000;
+                        bullet.node.y = 200000;
+                        bullet.node.x = 100000;
+                        this.scoreNow = this.scoreNow + value.getBlood();
+                        this.Score.string = this.scoreNow.toString();
+                    }
                 }
             });
         });
+    }
+
+    onDestroy(){
+        this.clearNodePool();
     }
 
     private onKeyDown(event) {
@@ -178,6 +198,16 @@ export default class Win_planeGame extends cc.Component {
         return cc.v2(randX, randY);
     }
 
+
+    private clearNodePool() {
+        const nodes = this.node.children;
+        while (nodes.length > 0) {
+            const node = nodes[0];
+            node.removeFromParent();
+            this.nodePool.put(node);
+        }
+    }
+
     private getPlayerDistance(player: cc.Vec2, enemy: cc.Vec2) {
         const playerPos = player;
         const dist = enemy.sub(playerPos).mag();
@@ -189,5 +219,6 @@ export default class Win_planeGame extends cc.Component {
     private accFire: boolean;
     private compList: Prefab_Enemy[] = [];
     private bulletList: Prefab_Bullet[] = [];
+    private scoreNow: number;
 }
 export const uiPalnceGame = new Win_planeGame();

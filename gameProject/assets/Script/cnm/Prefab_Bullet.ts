@@ -11,10 +11,6 @@ export default class Prefab_Bullet extends cc.Component {
     })
     accely: number = 0;
 
-    onLoad(){
-
-    }
-
     update(dt){
        this.bulletSpeed += this.accely*dt; 
        this.node.y += this.bulletSpeed * dt; 

@@ -98,7 +98,8 @@
     },
     "_enabled": true,
     "bulletSpeed": 150,
-    "accely": 100
+    "accely": 100,
+    "blood": 3
   },
   {
     "__type__": "cc.PrefabInfo",
