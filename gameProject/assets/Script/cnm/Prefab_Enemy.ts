@@ -1,5 +1,3 @@
-import { Plaryer } from "./Prefab_Plaryer";
-
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
 export default class Prefab_Enemy extends cc.Component {

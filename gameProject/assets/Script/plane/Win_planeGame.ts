@@ -1,6 +1,7 @@
 import Prefab_Plaryer from "../cnm/Prefab_Plaryer";
 import Prefab_Enemy from "../cnm/Prefab_Enemy";
 import Prefab_Bullet from "../cnm/Prefab_Bullet";
+import Win_GameOver from "./Win_GameOver";
 
 const { ccclass, property, menu } = cc._decorator;
 @ccclass
@@ -20,7 +21,7 @@ export default class Win_planeGame extends cc.Component {
         tooltip: "玩家分数数值"
     })
     Score: cc.Label = null;
-    
+
     @property({
         tooltip: "移动速度"
     })
@@ -56,8 +57,15 @@ export default class Win_planeGame extends cc.Component {
     })
     enemy3Prefab: cc.Prefab = null;
 
+    @property({
+        type: cc.Prefab,
+        tooltip: ""
+    })
+    gameOver: cc.Prefab = null;
+
     onLoad() {
         this.scoreNow = 0;
+        this.overActive = false;
         this.Score.string = this.scoreNow.toString();
         this.bgList[0] = this.bg1;
         this.bgList[1] = this.bg2;
@@ -66,50 +74,68 @@ export default class Win_planeGame extends cc.Component {
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
         this.spawnNewEnemy();
+        this.updataActive();
     }
 
     update(dt) {
         this.bgMove(this.bgList, this.bgSpeed);
-        const playerComp: Prefab_Plaryer = this.playerNode.getComponent(Prefab_Plaryer);
-        this.compList.forEach(value => {
-            if (value.getEnemy().y <= -650) {
-                value.node.x = 10000;
-                value.node.y = 10000;
-            }
-            const distance = this.getPlayerDistance(playerComp.getPlaryer(), value.getEnemy());
-            if (distance <= value.node.width) {
-                value.node.x = 10000;
-                value.node.y = 10000;
-            }
-            this.bulletList.forEach(bullet => {
-                const distance = this.getPlayerDistance(value.getEnemy(), bullet.getBullet());
-                if (bullet.getBullet().y >= 650) {
-                    bullet.node.y = 200000;
-                    bullet.node.x = 100000;
-                }
-                if (distance <= value.node.height / 2) {
-                    if (value.getTime() < value.getBlood()) {
-                        value.addTime();
-                        bullet.node.y = 200000;
-                        bullet.node.x = 100000;
-                    
-                    } 
-                    if(value.getTime() === value.getBlood()) {
-                        value.node.x = 10000;
-                        value.node.y = 10000;
-                        bullet.node.y = 200000;
-                        bullet.node.x = 100000;
-                        this.scoreNow = this.scoreNow + value.getBlood();
-                        this.Score.string = this.scoreNow.toString();
-                    }
-                }
-            });
-        });
     }
 
-    onDestroy(){
+    onDestroy() {
         this.clearNodePool();
     }
+
+    getScore() {
+        return this.scoreNow;
+    }
+
+    private updataActive() {
+        const self = this;
+        const updata = function () {
+            const playerComp: Prefab_Plaryer = self.playerNode.getComponent(Prefab_Plaryer);
+            self.compList.forEach(value => {
+                if (value.getEnemy().y <= -650) {
+                    value.node.x = 10000;
+                    value.node.y = 10000;
+                }
+                const distance = self.getPlayerDistance(playerComp.getPlaryer(), value.getEnemy());
+                if (distance <= value.node.width) {
+                    self.unschedule(updata);
+                    self.overActive = true;
+                   self.compList.forEach(comp =>{
+                       comp.node.removeFromParent();
+                       self.nodePool.put(comp.node);
+                   });
+                    self.setOver();
+                }
+                self.bulletList.forEach(bullet => {
+                    const distance = self.getPlayerDistance(value.getEnemy(), bullet.getBullet());
+                    if (bullet.getBullet().y >= 650) {
+                        bullet.node.y = 200000;
+                        bullet.node.x = 100000;
+                    }
+                    if (distance <= value.node.height / 2) {
+                        if (value.getTime() < value.getBlood()) {
+                            value.addTime();
+                            bullet.node.y = 200000;
+                            bullet.node.x = 100000;
+
+                        }
+                        if (value.getTime() === value.getBlood()) {
+                            value.node.x = 10000;
+                            value.node.y = 10000;
+                            bullet.node.y = 200000;
+                            bullet.node.x = 100000;
+                            self.scoreNow = self.scoreNow + value.getBlood();
+                            self.Score.string = self.scoreNow.toString();
+                        }
+                    }
+                });
+            });
+        }
+        this.schedule(updata, 0);
+    }
+
 
     private onKeyDown(event) {
         switch (event.keyCode) {
@@ -154,6 +180,14 @@ export default class Win_planeGame extends cc.Component {
         }
     }
 
+    private setOver() {
+        cc.log(this.scoreNow);
+        const overNode = this.getUnUseNode(this.gameOver);
+        this.node.addChild(overNode);
+        const overComp: Win_GameOver = overNode.getComponent(Win_GameOver);
+        overComp.initWithData(this.Score.string);
+    }
+
     private getUnUseNode(Prefab: cc.Prefab) {
         let node: cc.Node = null;
         if (this.nodePool.size() > 0) {
@@ -166,27 +200,39 @@ export default class Win_planeGame extends cc.Component {
 
     private spawnNewEnemy() {
         const self = this;
-        this.schedule(function () {
+        const function1 = function () {
+            if (self.overActive === true) {
+                self.unschedule(function1);
+            }
             const node = self.getUnUseNode(self.enemy1Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
             const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
             self.compList.push(enemy1Comp);
-        }, 1);
-        this.schedule(function () {
+        }
+        this.schedule(function1, 1);
+        const function2 = function () {
+            if (self.overActive === true) {
+                self.unschedule(function2);
+            }
             const node = self.getUnUseNode(self.enemy2Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
             const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
             self.compList.push(enemy1Comp);
-        }, 3);
-        this.schedule(function () {
+        }
+        this.schedule(function2, 3);
+        const function3 = function () {
+            if (self.overActive === true) {
+                self.unschedule(function3);
+            }
             const node = self.getUnUseNode(self.enemy3Prefab);
             self.node.addChild(node);
             node.setPosition(self.getNewPosition());
             const enemy1Comp: Prefab_Enemy = node.getComponent(Prefab_Enemy);
             self.compList.push(enemy1Comp);
-        }, 5);
+        }
+        this.schedule(function3, 5);
     }
 
     private getNewPosition() {
@@ -220,5 +266,6 @@ export default class Win_planeGame extends cc.Component {
     private compList: Prefab_Enemy[] = [];
     private bulletList: Prefab_Bullet[] = [];
     private scoreNow: number;
+    private overActive: boolean;
 }
 export const uiPalnceGame = new Win_planeGame();
