@@ -8,13 +8,11 @@
 </head>
 <body>
     <script type="text/javascript">
-           
-           var n =parseInt(window.prompt("place enter n"));
-            var a=2;
-           for(var i = 0; i<n-1; i++){
-               a=a*2;
-           }
-           document.write(a);
+      
+      (function fnc(){
+         var myname = 'golbal';
+         Function("console.log(typeof(myname));")();
+      }())
     </script>
 </body>
 </html>

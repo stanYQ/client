@@ -65,7 +65,7 @@ html,body{
     padding: 0 6px;
 }
 
-.wrapper .top-nav-wrap .top-nav .bg-pic{
+ .bg-pic{
     display:inline-block;
     width: 6px;
     height:3px;
@@ -73,7 +73,7 @@ html,body{
     vertical-align: middle;
 }
 
-.wrapper  .top-nav-wrap .top-nav .bg-pic.xsj-pic{
+ .bg-pic.xsj-pic{
     background-image: url('../img/xsj.png');
 }
 
@@ -423,6 +423,7 @@ html,body{
     width: 472px;
     padding: 6px 16px;
     border: none;
+    /* 取消onfocus 边框 */
     outline: 0;
     text-indent: 10px;
 }
@@ -1070,3 +1071,323 @@ html,body{
     width: 100%;
 }
 
+/* 生活研究所样式 */
+.life-box{
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.life-box .research{
+    margin-top:10px;
+    height: 166px;
+    overflow: hidden;
+}
+
+.life-box .research .research-inner{
+    background: #FFF;
+    height:166px;
+}
+
+.life-box .research .research-inner .inner-top{
+    padding-top: 20px;
+    height: 24px;
+    padding-left: 20px;
+    padding-bottom: 24px;
+}
+
+.inner-top .f1{
+    float: left;
+}
+
+ .inner-top .f1 .mlogo{
+    height: 24px;
+    margin-right: 5px;
+}
+
+ .inner-top p{
+    height: 24px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #999999;
+}
+
+.life-box .research .research-inner .inner-top p span{
+    margin-left: 5px;
+}
+
+.life-box .research .research-inner .inner-bottom{
+    padding-left: 20px;
+    margin-top:3px;
+}
+
+.life-box .research .research-inner .inner-bottom::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.life-box .research .research-inner .inner-bottom ul{
+    padding-bottom:23px;
+} 
+
+.life-box .research .research-inner .inner-bottom li{
+    float: left;
+    width: 192px;
+    height: 82px;
+}
+
+.life-box .research .research-inner .inner-bottom .wrap-img{
+    height: 66px;
+    width: 66px;
+    border-radius: 100%;
+    border: 1px solid #13d0a1;
+    overflow: hidden;
+    padding:7px;
+    float: left;
+}
+
+.life-box .research .research-inner .inner-bottom .wrap-img img{
+    width: 66px;
+    height: 66px;
+}
+
+.life-box .research .research-inner .inner-bottom .right{
+    margin-left: 91px;
+} 
+
+.life-box .research .research-inner .inner-bottom .right h4{
+    height: 24px;
+    margin-top: 6px;
+    overflow: hidden;
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    color: #333333;
+} 
+
+.life-box .research .research-inner .inner-bottom .right .title-inner{
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    font-size: 14px;
+} 
+
+.life-box .research .research-inner .inner-bottom .right p{
+    color: #999999;
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.life-box .research .research-inner .inner-bottom .right .icon{
+    background: url("../img/aixin.png") no-repeat;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.life-box .research .research-inner .inner-bottom a:hover .wrap-img{
+    border-color: #fc4200;
+} 
+
+.life-box .research .research-inner .inner-bottom a:hover .right .item-title{
+    color: #fc4200;
+} 
+
+/* 有好货部分 */
+.life-box .layer{
+    margin-top: 10px;
+    width:100%;
+    /* border: 1px solid #000; */
+} 
+
+.life-box .layer .good,.life-box .layer .shopping{
+     /* border: 1px solid #000; */
+     background-color: #fff;
+     width: 590px;
+     height: 658px;
+     float: left;
+}
+
+.life-box .layer .shopping{
+     margin-left: 10px;
+}
+
+.life-box .layer .inner-top {
+    position: relative;
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.life-box .layer .inner .inner-top .ewm{
+    display: inline-block;
+    height:20px;
+    width: 20px;
+    background: url("../img/xe.png") no-repeat;
+    vertical-align: middle;
+    background-size: 100% 100%;
+    margin-bottom: 5px;
+}
+
+.life-box .layer .inner .inner-top .ewm .hide{
+    position: absolute;
+    left: -17px;
+    top: 20px;
+    display: none;
+    width: 66px;
+    height: 80px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    z-index: 99999;
+}
+
+.life-box .layer .inner .inner-top .ewm .hide img{
+    height:66px;
+    width:66px;
+}
+
+.life-box .layer .inner .inner-top .ewm .hide em{
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    text-align: center;
+    color: #666;
+    font-weight: 400;
+    font-size: 12px;
+} 
+
+.life-box .layer .inner .inner-top .ewm:hover .hide {
+     display: block;
+}
+
+.life-box .layer .inner .inner-top .inner-right-top{
+    position: absolute;
+    right: 20px;
+}
+
+.life-box .layer .inner .inner-top .inner-right-top:hover{
+    cursor: pointer;
+}
+
+.life-box .layer .inner .inner-center {
+    margin-left: 21px;
+    overflow: hidden;
+} 
+
+.life-box .layer .inner .inner-center .item-wrap{
+    display: block;
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    margin: 0 4px 17px;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .img-wrap {
+    background-color: #4f4f4f;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .img-wrap img{
+        display: block;
+        height: 180px;
+        width: 100%;
+        opacity: 0.9;
+}
+
+.life-box .layer .inner .inner-center .item-wrap:hover .info h4,
+.life-box .layer .inner .inner-center .item-wrap:hover .info .info-des{
+    color:#fc4200;
+}
+
+.life-box .layer .inner .inner-center .item-wrap:hover img{
+    opacity: 0.7;
+} 
+
+.life-box .layer .inner .inner-center .item-wrap .info{
+    overflow: hidden;
+    padding: 0 4px 0 6px;
+} 
+
+.life-box .layer .inner .inner-center .item-wrap .info h4{
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: normal;
+    height: 28px;
+    line-height: 28px;
+    overflow: hidden;
+    color:#3c3c3c;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info p.item-des{
+    height: 24px;
+    line-height: 24px;
+    color: #999999;
+    margin-top: 0px;;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info p{
+    height:24px;
+    line-height: 24px;
+    margin-top: 12px;
+    overflow: hidden;
+    font-size:14px;
+    color: #35b1ff;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info .smile-icon{
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background: url("../img/smile.png") no-repeat;
+    vertical-align: middle;
+    background-size: 100% 100%;
+    margin-bottom: 3px;
+    margin-right: -1px;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info .des-icon{
+    display: inline-block;
+    height: 24px;
+    width: 20px;
+    vertical-align:middle;
+    background: url("../img/des-icon.png") no-repeat;
+    background-size: 100% 100%;
+    margin-top: -15px;
+    margin-right: -2px;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info .info-des{
+    margin-top:11px;
+    line-height: 22px;
+    height: 44px;
+    color: #999999;
+    overflow: hidden;
+    font-size: 15px;
+} 
+
+.life-box .layer .inner .inner-center .item-wrap .info .extra{
+    margin-top:  14px;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info .pic-wrap{
+    overflow: hidden;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    float: left;
+    background-clip: padding-box;
+}
+
+.life-box .layer .inner .inner-center .item-wrap .info .name{
+    line-height: 22px;
+    margin-left: 30px;
+    font-size: 12px;
+    color: #999999;
+}
