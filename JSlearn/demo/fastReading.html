@@ -6,13 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        .son{
-            width: 50px; 
-            height:50px;border-radius: 50%; opacity:0.5; background-color: red; position: absolute; right:20px;
-       top: 600px; line-height: 50px; text-align: center;
-        }
-    </style>
 </head>
 
 <body>
@@ -633,129 +626,54 @@
     京公网安备11000002000001号
 
     分享
-        <!-- minutes: <input type="text" value="0">
-      seconds: <input type="text" value="0"> -->
-        <div class="son" >top</div>
-    <script type="text/javascript">
-        var div = document.getElementsByTagName("div")[0];
-        function setFixed(elem) {
-            var elemTop = elem.offsetTop;
-            window.onscroll = function () {
-                elem.style.top = elemTop + window.pageYOffset + "px";
-            }
+    <div style="width: 100px; height: 100px; background-color:orange; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 100px; position: fixed; bottom: 200px; right: 50px; border-radius: 50%; opacity: 0.5;">strat</div>
+    <div style="width: 100px; height: 100px; background-color:green; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 100px; position: fixed; bottom: 80px; right: 50px; border-radius: 50%; opacity: 0.5;">stop</div>
+   <div style="width: 50px; height: 50px; background-color:orange; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 50px; position: fixed; bottom: 200px; left: 20px; border-radius: 50%; opacity: 0.5;">+</div>
+    <div style="width: 50px; height: 50px; background-color:green; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 50px; position: fixed; bottom: 80px; left: 20px; border-radius: 50%; opacity: 0.5;">-</div>
+
+</body>
+
+
+<script type="text/javascript">
+    var strat = document.getElementsByTagName("div")[0];
+    var stop = document.getElementsByTagName("div")[1];
+    var fast = document.getElementsByTagName("div")[2];
+    var slow = document.getElementsByTagName("div")[3];
+    var active = false;
+    var timer = 0;
+    var speed = 10;
+    
+    strat.onclick = function () {
+        if (active === false) {
+            active = true;
+            timer = setInterval(function () {
+                window.scrollBy(0, speed);
+            }, 100)
         }
 
-        setFixed(div);
+    }
 
-        // div.onclick = function(){.
-        //     console.log("onclick");
-        // }
-        // div.onmousedown = function(){
-        //     console.log("onmousedown");
-        // }
-        // div.onmouseup = function(){
-        //     console.log("onmouseup");
-        // }
-        // var a = document.getElementById("a");
-        // var b = document.getElementById("b");
-        // var c = document.getElementById("count");
-        // var result = document.getElementById("result");
-        // var btn = document.getElementById("but");
-        // btn.onclick = function () {
-        //     switch(c.value){
-        //         case "+":result.value = Number(a.value) + Number(b.value);
-        //              break;
-        //         case "-":result.value = Number(a.value) - Number(b.value);
-        //              break;
-        //         case "*":result.value = Number(a.value) * Number(b.value);
-        //              break;
-        //         case "/": result.value = Number(a.value) / Number(b.value);
-        //              break;
-        //     }
-        // }
+    stop.onclick = function(){
+        active = false;
+        clearInterval(timer);
+        speed = 10;
+    }
 
-        // function retParent(elem, n) {
-        //     while (n) {
-        //         if (elem != null) {
-        //             elem = elem.parentElement;
-        //             n--;
-        //         } else {
-        //             n = 0;
-        //             console.log("elem == null");
-        //         }
-        //     } return elem;
-        // }
-        // var i = document.getElementsByTagName('i')[0];
-
-        // Element.prototype.myChildren = function () {
-        //     var child = this.childNodes;
-        //     var len = child.length;
-        //     var arr = [];
-        //     for (var i = 0; i < len; i++) {
-        //         if (child[i].nodeType === 1) { // 区分节点类型
-        //             arr.push(child[i]);
-        //         }
-        //     }
-        //     return arr;
-        // }
-        // var div  = document.getElementsByTagName('div')[0];
-        // function retSibling(elem, n) {
-        //     while (elem && n) { //判断elem 是否为null
-        //         if (n > 0) {
-        //             elem = elem.nextElementSibling;
-        //             n--;
-        //         } else {
-        //             elem = elem.previousElementSibling;
-        //             n++;
-        //         }
-        //     }
-        //     return elem;
-        // }
+    fast.onclick = function(){
+        speed++;
+    }
+    
+    slow.onclick = function(){
+        speed--;
+    }
 
 
-        // function retSibling2(elem, n) {
-        //     function foo(e) {
-        //         if (e && e.nodeType != 1) {
-        //             e = e.nextSibling;
-        //             foo(e);
-        //         }
-        //         if (e && e.nodeType === 1) return e;
-        //     }
-
-        //     function foo2(e){
-        //         if(e && e.nodeType != 1){
-        //             e = previousSibling;
-        //             foo2(e);
-        //         }
-        //         if(e && e.nodeType === 1) return e;
-
-        //     }
-        //     while (elem && n) { //判断elem 是否为null
-        //         if (n > 0) {
-        //             if (0 && elem.nextElementSibling) {
-        //                 elem = elem.nextElementSibling;
-        //             } else {
-        //                 console.log(elem.nextSibling);
-        //                 elem = foo(elem.nextSibling);
-
-        //                 // for (elem = elem.nextSibling; elem && elem.nodeType != 1; elem = elem.nextSibling);
-        //             }
-        //             n--;
-        //         } else {
-        //             if (0 && elem.previousElementSibling) {
-        //                 elem = elem.previousElementSibling
-        //             } else {
-        //                 for (elem = elem.previousSibling; elem && elem.nodeType != 1; elem = elem.previousSibling);
-        //             }
-        //             n++;
-        //         }
-        //     }
-        //     return elem;
-        // }
-        // var strong = document.getElementsByTagName('strong')[0];
 
 
-    </script>
-</body>
+</script>
 
 </html>

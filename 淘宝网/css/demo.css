@@ -1391,3 +1391,34 @@ html,body{
     font-size: 12px;
     color: #999999;
 }
+
+.layer::after{
+      content:"";
+      display:block;
+      clear:both;
+}
+
+.layer-tao{
+      border: 1px solid #000;
+      margin: 0 auto;
+      width: 1190px;
+}
+
+.layer-tao .layer-inner{
+    margin-top: 10px;
+}
+
+.layer-tao .layer-inner .tbh-qiang{
+    height: 264px;
+    overflow: hidden;
+    background-color: #fff;
+    min-height: 0;
+}
+
+.layer-tao .layer-inner .tbh-qiang .qiang-hd{
+    margin-bottom:20px;
+    padding-left: 20px;
+    margin-top: 20px;
+    border:1px solid black;
+    height: 40px;
+}

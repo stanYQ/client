@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="../tools.js" type="text/javascript"></script>
+
+<body>
+    <div style="width:100px; height:100px; background-color:red;
+    position:absolute; left:0; top:0;"></div>
+    <div style="width: 100px; height: 100px; background-color:orange; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 100px; position: fixed; bottom: 200px; right: 50px; border-radius: 50%; opacity: 0.5;">strat</div>
+    <div style="width: 100px; height: 100px; background-color:green; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 100px; position: fixed; bottom: 80px; right: 50px; border-radius: 50%; opacity: 0.5;">stop</div>
+    <div style="width: 50px; height: 50px; background-color:orange; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 50px; position: fixed; bottom: 200px; left: 20px; border-radius: 50%; opacity: 0.5;">+</div>
+    <div style="width: 50px; height: 50px; background-color:green; color:#fff; font-size:30px; font-weight:bold;
+ text-align: center;line-height: 50px; position: fixed; bottom: 80px; left: 20px; border-radius: 50%; opacity: 0.5;">-</div>
+
+    <script type="text/javascript">
+        var div = document.getElementsByTagName("div")[0];
+        var strat = document.getElementsByTagName("div")[1];
+        var stop = document.getElementsByTagName("div")[2];
+        var up = document.getElementsByTagName("div")[3];
+        var down = document.getElementsByTagName("div")[4];
+        var timer, timer2;
+        var active = true;
+        var speed = 1;
+        strat.onclick = function () {
+            if (active) {
+                timer = setInterval(function () {
+                    div.style.left = parseInt(getStyle(div, "left")) + speed + "px";
+                }, 10);
+                timer2 = setInterval(function () {
+                    div.style.top = parseInt(getStyle(div, "top")) + speed + "px";
+                }, 10);
+            }
+            active = false;
+        }
+
+        stop.onclick = function () {
+            clearInterval(timer);
+            clearInterval(timer2);
+            active = true;
+        }
+
+        up.onclick = function () {
+            speed ++;
+        }
+
+        down.onclick = function () {
+            speed --;
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script type="text/javascript">
+        var liCol = document.getElementsByTagName("li");
+        var len = liCol.length;
+        for (var i = 0; i < len; i++) {
+            // liCol[i].addEventListener("click", function(){
+            //     console.log(i);
+            // }, false); 绑定事件出现在循环里面（用到 i），考虑是否形成闭包，用立即执行函数来写
+            for (var i = 0; i < len; i++) {
+                (function (i) {
+                    liCol[i].addEventListener("click", function () {
+                        console.log(i+1);
+                    }, false);
+                }(i))
+
+            }
+        }
+    </script>
+</body>
+
+</html>
