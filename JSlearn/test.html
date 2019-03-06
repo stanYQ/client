@@ -6,29 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        .son{
-            width: 50px; 
-            height:50px;border-radius: 50%; opacity:0.5; background-color: red; position: absolute; right:20px;
-       top: 600px; line-height: 50px; text-align: center;
-        }
-    </style>
+
 </head>
 
 <body>
-        <!-- minutes: <input type="text" value="0">
-      seconds: <input type="text" value="0"> -->
-        <div class="son" >top</div>
-    <script type="text/javascript">
-        var div = document.getElementsByTagName("div")[0];
-        function setFixed(elem) {
-            var elemTop = elem.offsetTop;
-            window.onscroll = function () {
-                elem.style.top = elemTop + window.pageYOffset + "px";
-            }
-        }
 
-        setFixed(div);
+    <script type="text/javascript">
+
+        function loadScript(url, callback) {
+            var script = document.createElement('script');
+            script.type = "text/javascript";
+            if (script.readyState) {
+                script.onreadystatechange = function () {
+                    if (script.readyState == "complete" || script.readyState == "loaded") {
+                        callback();
+                    }
+                }
+            } else {
+                script.onload = function () {
+                    callback();
+                }
+            }
+            script.src = url;
+            document.head.appendChild(script);
+        }
+        
+         loadScript("tools.js", function(){
+             test();
+         });
+        // var div = document.getElementsByTagName("div")[0];
+        // function setFixed(elem) {
+        //     var elemTop = elem.offsetTop;
+        //     window.onscroll = function () {
+        //         elem.style.top = elemTop + window.pageYOffset + "px";
+        //     }
+        // }
+
+        // setFixed(div);
 
         // div.onclick = function(){.
         //     console.log("onclick");

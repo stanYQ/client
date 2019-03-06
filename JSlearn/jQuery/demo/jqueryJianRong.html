@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myList">
+        <!-- <li style="height:60px;width:600px; border:2px solid red;"></li> -->
+        <p style="height:60px;width:600px; border:2px solid red;">东方红噶电视剧和发挥了开发的拉黑多发发的开发</p>
+        <li style="height:60px;width:600px; border:2px solid red;"></li>
+    </ul>
+    <!--兼容引入jQuery文件-->
+    <!-- chrome firefox Safari opera IE9+-->
+    <!--[if ge IE 8]-->
+    <script src="../jQueryFile/jquery-3.3.1.min.js"></script>
+    <!--IE8及以下-->
+    <!--<![end if]>
+    <script src="../jQueryFile/jquery-1.11.3.min.js"></script>
+    <![endif]-->  
+    <!--jQuery入口-->
+    <script>
+        $(document).ready(function(){
+            //jQuery代码块   $(function(){});
+            $("#myList p:only-of-type").css("border","2px  solid green");
+        });
+     
+    </script>
+</body>
+</html>

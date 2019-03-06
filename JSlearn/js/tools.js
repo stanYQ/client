@@ -203,3 +203,26 @@ function setFixed(elem) {
     }
 }
 
+//上两种异步加载 js 方法封装成函数  callback 需要传入一个匿名函数 例如function(){test();};
+//针对需要调用 库里的某一个方法 进行按需加载
+function loadScript(url, callback){
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    if(script.readyState){
+        script.onreadystatechange = function (){
+            if(script.readyState =="complete" || script.readyState == "loaded"){
+                callback();
+            }
+        }
+    }else{
+        script.onload = function(){
+            callback();
+        }
+    }
+    script.src = url;
+    document.head.appendChild(script);
+}
+
+// function test(){
+//     console.log("a");
+// }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href=".//sideShow-css.css" type="text/css">
+</head>
+
+<body>
+    <div class="wrap">
+        
+        <ul class="focus-list" id="a">
+            <li class="one" style="display:list-item;"></li>
+            <li class="two" style="display:none;"></li>
+            <li class="three" style="display:none;"></li>
+            <li class="four" style="display:none;"></li>
+            <li class="five" style="display:none;"></li>
+            <li class="six" style="display:none;"></li>
+            <li class="seven" style="display:none;"></li>
+        </ul>
+        <div class="mod">
+            <ul class="focus-nav" id="b">
+                <li class="current">
+                    <a href="#" rel="1" title="正直播:2019全国政协新闻发布会">
+                        <span class="focus-nav-title ">正直播</span><span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">2019全国政协新闻发布会</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="2" title="乡村爱情11:谢广坤闹离婚">
+                        <span class="focus-nav-title " data-spm-anchor-id="a2ha1.12325017.2.i0">乡村爱情11</span><span
+                            class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">谢广坤闹离婚</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="3" title="都挺好:首播！姚晨郭京飞互怼">
+                        <span class="focus-nav-title ">都挺好</span>
+                        <span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">首播！姚晨郭京飞互怼</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="4" title="王牌4:沈腾变身马蜂 狂叮 蔡明">
+                        <span class="focus-nav-title ">王牌4</span><span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">沈腾变身马蜂"狂叮"蔡明</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="5" title="东宫:李承鄞被撩动情小枫">
+                        <span class="focus-nav-title ">东宫</span><span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">李承鄞被撩动情小枫</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="6" title="以团之名:8进6公演燃炸">
+                        <span class="focus-nav-title ">以团之名</span><span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">8进6公演燃炸</span>
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="#" rel="7" title="“大”人物:王千源“死磕”包贝尔">
+                        <span class="focus-nav-title ">“大”人物</span><span class="split">&nbsp;:&nbsp;</span><span class="focus-nav-desc">王千源“死磕”包贝尔</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var uls = document.getElementById("a");
+        var uls2 = document.getElementById("b");
+        var img = uls.getElementsByTagName("li");
+        var btn = uls2.getElementsByTagName("li");
+        var play = null;
+        var index = 0;
+        console.log(uls);
+        console.log(uls2);
+
+        function show(a) {
+            for (var i = 0; i < btn.length; i++) {
+                btn[i].className = "";
+                btn[a].className = "current";
+            }
+            for (var i = 0; i < img.length; i++) {
+                img[i].style.display = "none";
+                img[a].style.display = "list-item";
+            }
+        }
+
+        function addEvent(elem, type, handle) {// handdle: function(){}
+            if (elem.addEventListener) {
+                elem.addEventListener(type, handle, false);
+            } else if (elem.attachEvent) {
+                elem.attachEvent("on" + type, function () {
+                    handle.call(elem);
+                });
+            } else {
+                elem['on' + type] = handle;
+            }
+        }
+
+        function autoPlay() {
+            play = setInterval(function () {
+                index++;
+                if (index >= img.length) index = 0;
+                show(index);
+            }, 20000);
+        }
+        autoPlay();
+
+        for (var i = 0; i < btn.length; i++) {//在写的过程中引发了一个关于 for循环的bug
+            //由于for循环中的i变量是用var声明的，此时的 i 在全部范围内都有效，所以每一次循环，新的i值会覆盖旧的i值，导致最后输出是最后一轮的i的值
+            //可以使用闭包 或者 使用 let 声明i
+            //let全称为代码块作用域，顾名思义他是作用域代码块的，它和var的用法相似，但是在同一个代码快中不能出现重名的let变量
+            (function (val) {
+                btn[val].onmouseover = function () {
+                    clearInterval(play);
+                    show(val);
+                    index = val;
+                    console.log(val);
+                }
+                btn[val].onmouseout = function () {
+                    autoPlay();
+                }
+            }(i));
+
+        }
+    </script>
+</body>
+
+</html>

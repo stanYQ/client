@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrap{
+    height: 524px;
+    min-width: 1058px;
+    z-index: 2;
+}
+
+.focus-list{
+    height: 100%;
+    width: 100%;
+}
+
+.wrap .focus-list li {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    /* background-size:auto 100%; */
+}
+
+.wrap .focus-nav li a {
+    color: #ffffff; 
+    text-decoration: none;
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 44px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .6;
+    filter: alpha(opacity=60);
+    padding: 0 22px 0 16px;
+    box-sizing: border-box;
+}
+
+.wrap .focus-nav .current a {
+    color: #ff4400 !important;
+}
+
+.current {
+    height: 70px;
+    z-index: 10;
+}
+
+.wrap .focus-nav .current .focus-nav-title {
+    padding-top: 14px;
+    font-size: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wrap .focus-nav .current .focus-nav-desc {
+    display: block;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wrap .focus-nav {
+    list-style: none;
+    top: 70px;
+    width: 220px;
+    position: absolute;
+    right: 70px;
+    text-align: left;
+    background: rgba(32,32,32,0.65);
+    _background: #000;
+    background: #000 \9;
+    filter: alpha(opacity=30);
+    -ms-filter: "alpha(opacity=30)";
+}
+
+.one{
+    background-image: url(.//1.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.two{
+    background-image: url(.//2.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.three{
+    background-image: url(.//3.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.four{
+    background-image: url(.//4.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.five{
+    background-image: url(.//5.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.six{
+    background-image: url(.//6.jpg);
+    background-size: 100%;
+    opacity: 1;
+}
+
+.seven{
+    background-image: url(.//7.jpg);
+    opacity: 1;
+    background-size: 100%;
+}
+
