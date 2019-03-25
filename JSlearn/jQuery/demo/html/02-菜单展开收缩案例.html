@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>菜单展开收缩</title>
+    <style>
+        body{
+            font:16px "Microsoft YaHei", sans-serif;
+        }
+
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .nav-list{
+            width: 220px;
+        }
+
+        h3{
+            position: relative;
+            margin: 0;
+            padding: 10px 20px;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: normal;
+            border-top: 1px solid #cccccc;
+        }
+
+        .nav-list h3 span{
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            background: url("../img/close.png") no-repeat;
+            background-size: 100% 100%;
+            right: 20px;
+            top: 14px
+        }
+
+        .nav-list h3.open span{
+            background: url("../img/open.png") no-repeat;
+            background-size: 100% 100%;
+            height: 6px;
+            width: 12px;
+        }
+
+        .nav-list h3:hover{
+            cursor: pointer;    
+            background: #ccc;
+        }
+
+        .nav-list li a{
+            display: block;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #cccccc;
+            border-bottom: none;
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .nav-list li a:hover{
+            background-color: #ccc;
+        }
+
+        .nav-list ul{
+           display: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="nav-list">
+        <h3>选择器<span></span></h3>
+        <ul>
+            <li><a href="#">基本选择器</a></li>
+            <li><a href="#">层级选择器</a></li>
+            <li><a href="#">过滤选择器</a></li>
+            <li><a href="#">属性选择器</a></li>
+            <li><a href="#">内容选择器</a></li>
+            <li><a href="#">子元素选择器</a></li>
+            <li><a href="#">可见性选择器</a></li>
+            <li><a href="#">表单选择器</a></li>
+            <li><a href="#">表单对象选择器</a></li>
+        </ul>
+        <h3>筛选<span></span></h3>
+        <ul>
+            <li><a href="#">过滤</a></li>
+            <li><a href="#">查找</a></li>
+            <li><a href="#">关联</a></li>
+            <li><a href="#">DOM操作</a></li>
+        </ul>
+        <h3>样式<span></span></h3>
+        <ul>
+            <li><a href="#">CSS操作</a></li>
+            <li><a href="#">位置</a></li>
+            <li><a href="#">尺寸</a></li>
+        </ul>
+        <h3>属性<span></span></h3>
+        <ul>
+            <li><a href="#">属性</a></li>
+            <li><a href="#">CSS类</a></li>
+            <li><a href="#">代码</a></li>
+            <li><a href="">文本</a></li>
+            <li><a href="">值</a></li>
+        </ul>
+    </div>
+    <script src="../jQueryFile/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".nav-list h3").click(function(){
+                //方案四
+                $(this).toggleClass("open").next("ul").slideToggle();
+                
+                //方案三
+                // $(this).toggleClass("open");
+                // $(this).next("ul").slideToggle();
+
+                //方案二
+                // $(this).toggleClass("open");
+                // if($(this).next("ul").is(":visible")){
+                //     $(this).next("ul").slideUp();
+                // }else{
+                //     $(this).next("ul").slideDown();
+                // }
+
+                //方案一
+                // if($(this).hasClass("open")){
+                //     $(this).removeClass("open");
+                //     $(this).next().css("display","none");
+                // }else{
+                //     $(this).addClass("open");
+                //     console.log($(this).index);
+                //     $(this).next().css("display","inline");
+                // }
+               
+            });
+        });
+    </script>
+</body>
+</html>

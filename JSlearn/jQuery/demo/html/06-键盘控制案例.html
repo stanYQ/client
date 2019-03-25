@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script src="../jQueryFile/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //获取当前窗口宽高
+                var pageWidth = $(window).width();
+                var pageHeight = $(window).height();
+            $(document).keydown(function (event) {
+                console.log(pageHeight);
+                var left = $("#box").offset().left;
+                var top = $("#box").offset().top;
+                switch (event.which) {
+                    case 65:
+                        $("#box").offset({
+                            left: Math.max(left - 10, 0),//谁大就用谁 
+                        });
+                        break;
+                    case 68:
+                        $("#box").offset({
+                            left: Math.min(left + 10, pageWidth - 100),
+                        });
+                        break;
+                    case 87:
+                        $("#box").offset({
+                            top: Math.max(top - 10, 0),
+                        });
+                        break;
+                    case 83:
+                        $("#box").offset({
+                            top: Math.min(top + 10, pageHeight - 100),
+                        })
+                        break;
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

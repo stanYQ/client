@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script src="../jQueryFile/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#box").on("mousedown", function (event) {
+                $(this).css("opacity", 0.6);
+                //鼠标相对于box的位置
+                var offsetX = event.pageX - $(this).offset().left;
+                var offsetY = event.pageY - $(this).offset().top;
+                $(this).on("mousemove", function (even) {
+                    //获取当前鼠标的位置
+                    var x = even.pageX - offsetX;
+                    var y = even.pageY - offsetY;
+                    $(this).offset({
+                        left:x,
+                        top:y
+                    });
+                });
+            }).on("mouseup", function () {
+                $(this).css("opacity", 1);
+                $(this).off("mousemove");
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
