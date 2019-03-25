@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #smallBox {
+            position: relative;
+            width: 640px;
+            height: 400px;
+        }
+
+        #bigBox {
+            width: 640px;
+            height: 400px;
+            overflow: hidden;
+            position: absolute;
+            display: none;
+        }
+
+        #bigBox img{
+            height: 800px;
+            width: 1280px;
+        }
+
+        #zoom{
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+            width: 320px;
+            height: 200px;
+            background: url("../img/dd.jpg");
+            background-size: 100% 100%;
+            opacity: 0.7;
+            cursor:move;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>放大镜</h1>
+    <hr>
+    <div id="smallBox">
+        <img src="../img/small.jpg" alt="">
+        <div id="zoom"></div>
+    </div>
+    <div id="bigBox">
+        <img src="../img/big.jpg" alt="">
+    </div>
+    <script src="../jQueryFile/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //悬停于小图
+            $("#smallBox").mouseenter(function (event) {
+                var smallLeft = $("#smallBox").offset().left;
+                var smallTop = $("#smallBox").offset().top;
+                $("#zoom").show();
+                $("#bigBox").show().offset({
+                    left: smallLeft + 650,
+                    top: smallTop
+                });
+                $(this).mousemove(function (event) {
+                    var mLeft = event.pageX - smallLeft;
+                    var mTop = event.pageY - smallTop;
+
+                    var zLeft = Math.min(Math.max(mLeft - 160, 0),320);
+                    var zTop = Math.min(Math.max(mTop - 100,0),200);
+                    $("#zoom").css("left",zLeft).css("top",zTop);
+                    //控制大图 显示部分内容
+                    $("#bigBox").scrollLeft(zLeft * 2).scrollTop(zTop * 2);
+                });
+                //
+            }).mouseleave(function () {
+                $("#bigBox").hide();
+                $("#zoom").hide();
+            })
+        });
+    </script>
+</body>
+
+</html>
