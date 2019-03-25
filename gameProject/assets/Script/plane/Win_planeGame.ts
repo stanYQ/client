@@ -185,7 +185,7 @@ export default class Win_planeGame extends cc.Component {
         const overNode = this.getUnUseNode(this.gameOver);
         this.node.addChild(overNode);
         const overComp: Win_GameOver = overNode.getComponent(Win_GameOver);
-        overComp.initWithData(Number(this.Score.toString()));
+        overComp.initWithData(this.Score.string);
     }
 
     private getUnUseNode(Prefab: cc.Prefab) {
