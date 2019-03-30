@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../vue-demo1/styles.css">
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <div id="bag" v-bind:class="{burst:ended}"></div>
+        <!--进度请况-->
+        <div id="bag-health">
+            <div v-bind:style="{width: health +'%'}"></div>
+        </div>
+        <!--控制按钮-->
+        <div id="controls">
+            <button v-on:click="punch()" v-show="!ended">使劲敲</button>
+            <button v-on:click="restart()">重新开始</button>
+        </div>
+    </div>
+    <script src="../vue-demo1/demo_app.js"></script>
+</body>
+
+</html>

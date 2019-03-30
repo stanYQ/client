@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!--vue-app 是根容器-->
+    <div id="vue-app1">
+       <h1>{{greet("Night")}}</h1>
+       <h2>{{ name }}</h2>
+       <p>{{job}}</p> 
+       <a v-bind:href="website">web开发</a><br>
+       <input type="text" v-bind:value="name"><br>
+       <p v-html = "websiteTag"></p>
+    </div>
+
+    </div>
+    <script src="../vue-app1/app1.js"></script>
+</body>
+</html>

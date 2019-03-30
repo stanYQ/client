@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        #canvas {
+            width: 600px;
+            padding: 200px 20px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="vue-app2">
+        <h1>Events</h1>
+        <p>My age is {{age}}</p>
+        <button @dblclick="add(1)">增一岁1</button><!--@ 是v-on的缩写-->
+        <button @dblclick="subscribe(1)">减一岁1</button><!--双击事件-->
+        <button v-on:click="add(10)">增十岁</button><!--单击事件-->
+        <button v-on:click="subscribe(10)">减十岁</button>
+        <div id="canvas" v-on:mousemove="updateXY">{{X}},{{Y}}
+            - <span @mousemove.stop="">Stop Moving</span><!--通过stop事件修饰符阻止冒泡-->
+        </div>
+    </div>
+    <script src="../vue-app2/app2.js"></script>
+</body>
+
+</html>
