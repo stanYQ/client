@@ -13,7 +13,7 @@ var app = express();
 app.set('view engine','ejs');
 
 //静态样式文件 将在此文件夹转化成服务器可识别的模块
-app.use('./public',express.static('public'));
+app.use(express.static('./public'));
 
 //将app对象return到todoController
 todoController(app);
