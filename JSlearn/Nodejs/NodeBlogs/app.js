@@ -1,6 +1,9 @@
 //加载express模块
 var express = require('express');
 
+//加载数据库模块
+var mongoose = require('mongoose');
+
 //模板引擎配置
 var swig = require('swig');
 
@@ -23,15 +26,25 @@ app.set('view engine','html');
 swig.setDefaults({cache:false});
 
 
-app.get('/',function(req,res){
-    res.render('index');
-    //console.log("页面加载完成");
-    // res.writeHead(200,{"Content-Type":"application/json"})
-    res.json("{'msg':'msg'}");
-})
+/*
+ *根据不同功划分模块
+ */
+ app.use('/admin',require('./routers/admin'));
+ app.use('/api',require('./routers/api'));
+ app.use('/api',require('./routers/main'));
 
+
+//数据库连接
+mongoose.connect('mongodb://todoapp:todoapp@todo-shard-00-00-s8uvt.mongodb.net:27017,todo-shard-00-01-s8uvt.mongodb.net:27017,todo-shard-00-02-s8uvt.mongodb.net:27017/test?ssl=true&replicaSet=todo-shard-0&authSource=admin&retryWrites=true',(err)=>{
+    if(err){
+        console.log('数据库连接失败');
+    }else{
+        console.log('数据库连接成功');
+        app.listen(8081);
+    }
+});
 //监听URL请求
-app.listen(8081);
+
 //用户发送http请求 -> url ->服务器解析路由 ->找到匹配的规则 -> 执行绑定的函数 ->返回对应内容
 
 // 解析路由存在分支
