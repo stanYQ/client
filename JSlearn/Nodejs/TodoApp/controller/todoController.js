@@ -2,7 +2,13 @@
 var mongoose = require('mongoose');
 
 //链接数据库
-mongoose.connect('mongodb://todoapp:todoapp@todo-shard-00-00-s8uvt.mongodb.net:27017,todo-shard-00-01-s8uvt.mongodb.net:27017,todo-shard-00-02-s8uvt.mongodb.net:27017/test?ssl=true&replicaSet=todo-shard-0&authSource=admin&retryWrites=true');
+mongoose.connect('mongodb://todoapp:todoapp@todo-shard-00-00-s8uvt.mongodb.net:27017,todo-shard-00-01-s8uvt.mongodb.net:27017,todo-shard-00-02-s8uvt.mongodb.net:27017/test?ssl=true&replicaSet=todo-shard-0&authSource=admin&retryWrites=true',(err)=>{
+    if(err){
+        console.log('连接失败');
+    }else{
+        console.log('连接成功');
+    }
+});
 
 //编辑表格式
 var todoSchema = new mongoose.Schema({

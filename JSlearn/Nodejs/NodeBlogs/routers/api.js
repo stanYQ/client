@@ -58,7 +58,7 @@ router.post('/user/register', (req, res) => {
             return;
         }
 
-        createNewUser(username,password,res);
+        createNewUser(username, password, res);
         //实例化 user 通过操作对象操作数据库
         //  User({ username: username, password: password }).save() 相同
         // var user = new User({
@@ -67,18 +67,57 @@ router.post('/user/register', (req, res) => {
         // })
         // return user.save();
     })
-        // .then((newUserInfo) => {
-        //     console.log(newUserInfo);
-        // })
+    // .then((newUserInfo) => {
+    //     console.log(newUserInfo);
+    // })
 })
 
-function createNewUser(username,password,res){
-      User({ username: username, password: password }).save()
-            .then((newUserInfo) => {
-                console.log(newUserInfo);
-                responseData.message = '注册成功';
-                res.json(responseData);
-            })
+function createNewUser(username, password, res) {
+    User({ username: username, password: password }).save()
+        .then((newUserInfo) => {
+            console.log(newUserInfo);
+            responseData.message = '注册成功';
+            res.json(responseData);
+        })
 }
+
+router.post('/user/login', (req, res) => {
+    var username = req.body.username;
+    var password = res.body.password;
+
+    if (username == '') {
+        responseData.code = 1;
+        responseData.message = '用户名不能为空';
+        res.json(responseData);
+        return;
+    }
+
+    if (password == '') {
+        responseData.code = 2;
+        responseData.message = '密码不能为空';
+        res.json(responseData);
+        return;
+    }
+
+    User.findOne({
+        username: username,
+        password: password
+    }).then((userInfo) => {
+        if (!userInfo) {
+            responseData.code = 5,
+                responseData.message = '登录失败';
+            res.json(responseData);
+            return;
+        }
+
+        responseData.message = '登录成功';
+        responseData.userInfo = {
+            id: userInfo.id,
+            username: username
+        }
+        res.json(responseData);
+        return;
+    })
+})
 
 module.exports = router;

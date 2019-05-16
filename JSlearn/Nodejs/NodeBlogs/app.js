@@ -40,7 +40,8 @@ swig.setDefaults({cache:false});
 
 
 //数据库连接
-mongoose.connect('mongodb://admin:laMWguvkwM3CbZDT@blog-shard-00-00-uduac.mongodb.net:27017,blog-shard-00-01-uduac.mongodb.net:27017,blog-shard-00-02-uduac.mongodb.net:27017/test?ssl=true&replicaSet=blog-shard-0&authSource=admin&retryWrites=true',(err)=>{
+
+mongoose.connect('mongodb://stan:92PKRJBv1HgS76P1@blog-shard-00-00-uduac.mongodb.net:27017,blog-shard-00-01-uduac.mongodb.net:27017,blog-shard-00-02-uduac.mongodb.net:27017/test?ssl=true&replicaSet=blog-shard-0&authSource=admin&retryWrites=true',(err)=>{
     if(err){
         console.log('数据库连接失败');
     }else{
