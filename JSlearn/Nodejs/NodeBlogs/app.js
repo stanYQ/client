@@ -1,15 +1,20 @@
 //加载express模块
 var express = require('express');
-
+//创建APP应用 => NodeJS Http.createServer();
+var app = express();
 //加载数据库模块
 var mongoose = require('mongoose');
 
 //模板引擎配置
 var swig = require('swig');
 
-//创建APP应用 => NodeJS Http.createServer();
-var app = express();
+//加载body-parser //用于获取前端发送到的数据
+var bodyParser = require('body-parser');
 
+//bodyparser设置
+//会给req 添加一个body对象 记录请求的数据
+var urlencodedParser = bodyParser.urlencoded({extended:false});
+app.use(urlencodedParser);
 //设置静态文件托管
 app.use('/public',express.static(__dirname + '/public'));
 
@@ -31,11 +36,11 @@ swig.setDefaults({cache:false});
  */
  app.use('/admin',require('./routers/admin'));
  app.use('/api',require('./routers/api'));
- app.use('/api',require('./routers/main'));
+ app.use('/',require('./routers/main'));
 
 
 //数据库连接
-mongoose.connect('mongodb://todoapp:todoapp@todo-shard-00-00-s8uvt.mongodb.net:27017,todo-shard-00-01-s8uvt.mongodb.net:27017,todo-shard-00-02-s8uvt.mongodb.net:27017/test?ssl=true&replicaSet=todo-shard-0&authSource=admin&retryWrites=true',(err)=>{
+mongoose.connect('mongodb://admin:laMWguvkwM3CbZDT@blog-shard-00-00-uduac.mongodb.net:27017,blog-shard-00-01-uduac.mongodb.net:27017,blog-shard-00-02-uduac.mongodb.net:27017/test?ssl=true&replicaSet=blog-shard-0&authSource=admin&retryWrites=true',(err)=>{
     if(err){
         console.log('数据库连接失败');
     }else{
