@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改图书</title>
+</head>
+<body>
+   <form action="/editBook?id={{book.id}}" method="POST">
+    名称: <input type="text" name="name" value="{{book.name}}"> <br>
+    作者: <input type="text" name="author" value="{{book.author}}"><br>
+    分类: <input type="text" name="category" value="{{book.category}}"><br>
+    描述: <input type="text" name="desc" value="{{book.desc}}"><br>
+     <input type="submit" value="提交">
+</form> 
+</body>
+</html>
