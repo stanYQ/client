@@ -23,6 +23,7 @@ module.exports = {
     },
 
     get: (req, res) => {
+
         tools.readNewsData(config.dataPath,(list)=>{
             req.query.id = list.length;
             list.push(req.query);
