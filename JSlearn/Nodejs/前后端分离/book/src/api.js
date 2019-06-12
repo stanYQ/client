@@ -9,7 +9,7 @@ export const addBook = (book) => {
 }
 
 export const getBookById = (id) => {
-    return axios.get('http://localhost:3000/books/' + id);
+    return axios.get('http://localhost:3000/books/book/' + id);
 }
 
 export const editBook = (book) => {

@@ -1,0 +1,86 @@
+后端接口文档
+
+功能：查找所有的图书信息
+{
+    url:'http://localhost:3000/books',
+    type:get,
+    参数：null
+    respond:{
+        book={
+            name: string,//图书名
+            author: string,//图书作者
+            category: string,//分类
+            description: string//描述
+        }
+    }
+}
+
+功能：添加图书信息
+{
+    url:'http://localhost:3000/books/book',
+    type:post,
+    参数：{
+        book={
+            name: string,//图书名
+            author: string,//图书作者
+            category: string,//分类
+            description: string//描述
+        }
+    },
+    respond:{
+        flag:Number,
+        //flag:1 代表添加成功
+        //flag:2 代表添加失败
+    }
+}
+
+功能：修改图书信息
+{
+    url:'http://localhost:3000/books/book',
+    type: put,
+    参数：{
+        book={
+            name: string,//图书名
+            author: string,//图书作者
+            category: string,//分类
+            description: string//描述
+        }
+    },
+    respond:{
+        flag:Number,
+        //flag:1 代表修改成功
+        //flag:2 代表修改失败
+    }
+}
+
+功能：获取单个图书信息
+{
+    url:'http://localhost:3000/books/book/:id',
+    type: get,
+    参数：{
+            id:Number//图书的id
+          },
+    respond:{
+        book={
+            name: string,//图书名
+            author: string,//图书作者
+            category: string,//分类
+            description: string//描述
+        }
+    }
+}
+
+
+功能：删除图书信息
+{
+    url:'http://localhost:3000/books/book/:id',
+    type: delete,
+    参数：{
+            id:Number//图书的id
+          },
+    respond:{
+          flag:Number,
+        //flag:1 代表修改成功
+        //flag:2 代表修改失败
+            }
+}

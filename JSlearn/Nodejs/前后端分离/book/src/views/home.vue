@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <router-link to="/add">添加</router-link>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -20,7 +21,7 @@
             <td>{{book.description}}</td>
             <td>
               <button v-on:click="removeBook(book.id)">删除</button>
-              <router-link v-bind:to="'/edit/'+ book.id" >修改</router-link>
+              <router-link v-bind:to="'/edit/'+ book.id">修改</router-link>
             </td>
           </tr>
         </tbody>
@@ -31,8 +32,8 @@
 
 
 <script>
-import {getAllBook} from '../api';
-import {remove} from '../api';
+import { getAllBook } from "../api";
+import { remove } from "../api";
 export default {
   data() {
     return {
@@ -41,11 +42,12 @@ export default {
   },
   methods: {
     removeBook: function(id) {
-        remove(id).then(result => {
+      remove(id)
+        .then(result => {
           if (result.data.flag == 1) {
-             getAllBook().then((result)=>{
-               this.books = result.data;
-             })
+            getAllBook().then(result => {
+              this.books = result.data;
+            });
           } else {
             alert("delete data fail");
           }
@@ -56,9 +58,9 @@ export default {
     }
   },
   created() {
-    getAllBook().then((result)=>{
+    getAllBook().then(result => {
       this.books = result.data;
-    })
+    });
   }
 };
 </script>

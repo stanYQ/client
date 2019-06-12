@@ -1,11 +1,11 @@
 let express = require('express');
 let router = express.Router();
-let api = require('./api');
+let handel = require('./handel');
 
-router.get('/books',api.allBook);
-router.post('/books/book',api.addBook);
-router.get('/books/book/:id',api.getBookById);
-router.put('/books/book',api.editBook);
-router.delete('/books/book/:id',api.removeBook);
+router.get('/books',handel.allBook);
+router.post('/books/book',handel.addBook);
+router.get('/books/book/:id',handel.getBookById);
+router.put('/books/book',handel.editBook);
+router.delete('/books/book/:id',handel.removeBook);
 
 module.exports = router;

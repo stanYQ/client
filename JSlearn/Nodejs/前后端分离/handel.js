@@ -5,6 +5,7 @@ module.exports = {
         let sql = 'select * from book';
         let data = null;
         connectDB(sql, data, (result) => {
+            //向客户端的请求 响应 json格式的数据
             res.json(result);
         })
     },
@@ -20,6 +21,7 @@ module.exports = {
         var sql = 'insert into book set ?';
         connectDB(sql, book, (result) => {
             if (result.affectedRows === 1) {
+                // 通过向客户端 响应flag  客户端 根据此 进行判断
                 res.json({ flag: 1 });//添加成功
             } else {
                 res.json({ flag: 2 });//添加失败
