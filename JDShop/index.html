@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<div lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="maximum-scale=1.0,minimum-scale=1.0,width=device-width,user-scallable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <script src="./js/index.js"></script>
+        <title>京东首页</title>
+    </head>
+
+    <body>
+        <div class="jd_layout">
+            <!--搜索块 -->
+            <div class="jd_search" id="search">
+                <a href="javascript:;" class="jd_menu">
+                    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+                </a>
+                <form action="" class="jd_searchBox">
+                    <span class="search_icon glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <input type="text" placeholder="请输入商品名称" name="" id="">
+                </form>
+                <a href="javascript:;" class="jd_login">登录</a>
+            </div>
+            <!-- 轮播图 -->
+            <div class="jd_banner" id="banner">
+                <ul id="img" class="jd_bannerImg">
+                    <li>
+                        <a href="">
+                            <img src="./img/1.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/2.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/3.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/4.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/5.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/6.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/7.jpg" alt=""></a>
+                    </li>
+                    <li>
+                        <a href=""><img src="./img/8.jpg" alt=""></a>
+                    </li>
+                </ul>
+                <ul class="jd_bannerIndicator" id="index">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <!--导航栏  -->
+            <div class="jd_nav">
+                <ul class="clearfix">
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/京东超市.png">
+                        </a>
+                        <p>京东超市</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/数码电器.png">
+                        </a>
+                        <p>数码电器</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/京东服饰.png">
+                        </a>
+                        <p>京东服饰</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/京东生鲜.png">
+                        </a>
+                        <p>京东生鲜</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/京东到家.png">
+                        </a>
+                        <p>京东到家</p>
+
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/充值缴费.png">
+                        </a>
+                        <p>充值缴费</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/9.9拼购.png">
+                        </a>
+                        <p>9.9元拼</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/领券.png">
+                        </a>
+                        <p>领券</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/赚钱.png">
+                        </a>
+                        <p>赚钱</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./img/plus会员.png">
+                        </a>
+                        <p>plus会员</p>
+                    </li>
+                </ul>
+                <div class="jd_nav_pagination">
+                    <b class="cur">
+                    </b>
+                    <b no="2" class=""></b>
+                </div>
+            </div>
+            <!-- 京东秒杀 -->
+            <div class="jd_kill">
+                <div class="kill_title clearfix ">
+                    <a class="_f " href="#">
+                        <div class="title_img"></div>
+
+                        <strong>16点场</strong>
+
+                        <div class="kill_time clearfix">
+                            <div class="seckill_time">00</div>
+                            <span class="seckill-time-separator">:</span>
+                            <div class="seckill_time">00</div>
+                            <span class="seckill-time-separator">:</span>
+                            <div class="seckill_time">00</div>
+                        </div>
+                    </a>
+                    <a class="_r" href="#">
+                        更多秒杀
+                        <span class="glyphicon glyphicon-play-circle"></span>
+                    </a>
+                </div>
+                <div class="kill_content">
+                    <ul class="kill_list clearfix">
+                        <li class="kill_item">
+                            <div class="item_img">
+                                <a href="">
+                                    <img src="./img/item1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item_price">
+                                <span class="new_price">
+                                    <em>￥</em>
+                                    <span>8.9</span>
+                                </span>
+                                <span class="old_price">
+                                    <em>￥</em>
+                                    <span>29</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="kill_item">
+                            <div class="item_img">
+                                <a href="">
+                                    <img src="./img/item1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item_price">
+                                <span class="new_price">
+                                    <em>￥</em>
+                                    <span>8.9</span>
+                                </span>
+                                <span class="old_price">
+                                    <em>￥</em>
+                                    <span>29</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="kill_item">
+                            <div class="item_img">
+                                <a href="">
+                                    <img src="./img/item1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item_price">
+                                <span class="new_price">
+                                    <em>￥</em>
+                                    <span>8.9</span>
+                                </span>
+                                <span class="old_price">
+                                    <em>￥</em>
+                                    <span>29</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="kill_item">
+                            <div class="item_img">
+                                <a href="">
+                                    <img src="./img/item1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item_price">
+                                <span class="new_price">
+                                    <em>￥</em>
+                                    <span>8.9</span>
+                                </span>
+                                <span class="old_price">
+                                    <em>￥</em>
+                                    <span>29</span>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="kill_item">
+                            <div class="item_img">
+                                <a href="">
+                                    <img src="./img/item1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="item_price">
+                                <span class="new_price">
+                                    <em>￥</em>
+                                    <span>8.9</span>
+                                </span>
+                                <span class="old_price">
+                                    <em>￥</em>
+                                    <span>29</span>
+                                </span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- 产品栏 -->
+            <!-- 京东小院 -->
+            <div class="jd_product">
+                <div class="product_top">
+                    <div class="img_box">
+                        <span class="tit_img">
+                            <img src="./img/东家小院.jpg" alt="" srcset="">
+                        </span>
+                    </div>
+                </div>
+                <div class="product_content">
+                    <div class="xy_content clearfix">
+                        <div class="xy_item" style="width: 50%">
+                            <div class="graghic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                        background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                        background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                        -webkit-background-clip: text;
+                                        color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人更潇洒
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="./img/content2.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item" style="width: 50%">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                            background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                            background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                            -webkit-background-clip: text;
+                                            color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人更潇洒
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="./img/content2.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xy_content clearfix">
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                    background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                    background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                    -webkit-background-clip: text;
+                                                    color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                        background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                        background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                        -webkit-background-clip: text;
+                                                        color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                            background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                            background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                            -webkit-background-clip: text;
+                                                            color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                -webkit-background-clip: text;
+                                                                color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 每日逛 -->
+            <div class="jd_product">
+                <div class="product_top">
+                    <div class="img_box">
+                        <span class="tit_img">
+                            <img src="./img/每日逛.jpg" alt="" srcset="">
+                        </span>
+                    </div>
+                </div>
+                <div class="product_content">
+                    <div class="xy_content clearfix">
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                            background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                            background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                            -webkit-background-clip: text;
+                                                            color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                -webkit-background-clip: text;
+                                                                color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                    background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                    background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                    -webkit-background-clip: text;
+                                                                    color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                        background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                        background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                        -webkit-background-clip: text;
+                                                                        color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xy_content clearfix">
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                            background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                            background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                            -webkit-background-clip: text;
+                                                            color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                -webkit-background-clip: text;
+                                                                color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                    background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                    background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                    -webkit-background-clip: text;
+                                                                    color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="xy_item">
+                            <div class="graphic_text">
+                                <span class="graphic_tit" data-color="#45CAFF,#1471FB" style="
+                                                                        background: -webkit-linear-gradient(left,#45CAFF,#1471FB);
+                                                                        background: linear-gradient(90deg, #45CAFF,#1471FB);
+                                                                        -webkit-background-clip: text;
+                                                                        color: transparent;">帅气迷人</span>
+                                <p class="graphic-wz" style="color:#666771">
+                                    帅气迷人
+                                </p>
+                            </div>
+                            <div class="graphic_img clearfix">
+                                <a href="#">
+                                    <img src="./img/content1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;height: 10px;background-color: #f6f6f6"></div>
+            <div class="jd_product">
+                <div class="product_top">
+                    <div class="img_box">
+                        <span class="tit_img">
+                            <img src="./img/为你推荐.png" alt="" srcset="">
+                        </span>
+                    </div>
+                </div>
+                <div class="product_content">
+
+                </div>  
+            </div>
+            <div class="bottom_menu">
+                
+            </div>
+        </div>
+    </body>
+
+
+    <script>
+    </script>
+
+</div>

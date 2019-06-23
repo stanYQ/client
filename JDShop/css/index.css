@@ -1,0 +1,424 @@
+.jd_layout {
+    width: 100%;
+    /* 最大宽度 */
+    max-width: 640px;
+    /* 最小宽度 */
+    min-width: 320px;
+    background-color: #f6f6f6;
+    margin: 0 auto;
+    height: 1000px;
+}
+
+/* 顶部搜索框样式 */
+
+.jd_search {
+    width: 100%;
+    /* 固定在顶部 */
+    position: fixed;
+    max-width: 640px;
+    height: 40px;
+    /* background-color: ; */
+    background-color:rgb(233, 35, 34,0);
+    z-index: 9999;
+}
+
+/* menu样式 */
+
+.jd_menu {
+    position: absolute;
+    width: 46px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    top: 5px;
+    left: 10px;
+}
+
+/* 菜单图标样式 */
+
+.jd_menu>span {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* 登录样式 */
+
+.jd_login {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    top: 0px;
+    right: 0px;
+}
+
+/* 输入框盒子样式 */
+
+.jd_searchBox {
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    padding-left: 66px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+/* 输入框样式 */
+
+.jd_searchBox>input {
+    height: 30px;
+    width: 100%;
+    border-radius: 15px;
+    padding-left: 30px;
+    color: #666666;
+}
+
+/* 搜索图标 */
+
+.search_icon {
+    position: absolute !important;
+    font-size: 16px;
+    color: #cccccc;
+    top: 13px !important;
+    left: 75px;
+}
+
+/* 顶部搜索部分样式结束 */
+
+/* 轮播图部分 */
+
+.jd_banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.jd_bannerImg {
+    position: relative;
+}
+
+.jd_bannerImg>li {
+    float: left;
+}
+
+/* 轮播图图片样式 */
+
+.jd_bannerImg>li img {
+    width: 100%;
+}
+
+/* 标记Ul */
+
+.jd_bannerIndicator {
+    width: 100px;
+    height: 10px;
+    left: 50%;
+    bottom: 10px;
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* 下方原型标记样式 */
+
+.jd_bannerIndicator>li {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid #ffffff;
+    float: left;
+    margin-left: 6px;
+}
+
+/* 将第一个li margin-left 设置为0 */
+
+.jd_bannerIndicator>li:first-of-type {
+    margin-left: 0;
+}
+
+/*标记被激活*/
+
+.jd_bannerIndicator>li.active {
+    background-color: #fff;
+}
+
+/* 导航栏样式 */
+
+/* 导航栏盒子样式 */
+.jd_nav{
+    position: relative;
+    margin-top: -1.4rem;
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: .6rem;
+    border-top-right-radius: .6rem;
+}
+/* 导航栏li样式 */
+.jd_nav li{
+    margin-top: 5px;
+    width: 20%;
+    float: left;
+    /* 用于行级元素 */
+    text-align: center;
+}
+
+.jd_nav li img{
+    width: 40px;
+}
+
+.jd_nav li p {
+    line-height: 25px;
+}
+
+/* 导航栏小标点样式 */
+.jd_nav_pagination{
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 2px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+.jd_nav_pagination .cur{
+    background-color: #e93b3d;
+    width: 10px;
+    height: 5px;
+    border-radius: 3px;
+    opacity: .7;
+}
+
+.jd_nav_pagination b{
+    width: 5px;
+    height: 5px;
+    opacity: 1;
+    background-color: rgba(0,0,0,.2);
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 3px;
+}
+
+/* 导航栏样式结束 */
+
+/* 京东秒杀 */
+.jd_kill{
+    margin:0.6rem 0.6rem;
+    background-color: #fff;
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
+}
+
+/* 秒杀标题栏 */
+.kill_title{
+    width: 100%;
+    background: url('../img/killbg.png') no-repeat;
+    background-size: contain;
+}
+
+/* 秒杀标题栏右侧 */
+.kill_title ._f{
+    float: left;
+}
+
+.jd_kill ._f .title_img{
+    float: left;
+    width: 69px;
+    height: 27px;
+    margin-top: 8px;
+    margin-right: 6px;
+    margin-left: 0.45rem;
+    background:url('../img/kill_title.png') no-repeat;
+    background-size: contain;
+}
+
+.jd_kill ._f strong{
+    font-size: 12px;
+    color: #232326;
+    font-weight: 700;
+    float: left;
+    margin-top: 10px;
+}
+
+.kill_time{
+    margin-top: 10px;
+    float: left;
+    margin-left: 5px;
+}
+
+.seckill_time{
+    width: 18px;
+    height: 17px;
+    line-height: 17px;
+    color: #232326;
+    font-size: 12px;
+    text-align: center;
+    float: left;
+    position: relative;
+    border: 1px solid #cccccc;
+}
+
+.seckill-time-separator{
+    float: left;
+    width: 6px;
+    line-height: 16px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+    color: #232326;
+}
+
+._r{
+    height: 17px;
+    line-height: 17px;
+ float: right;
+ margin-top: 10px;
+ color: #e93b3d;
+ margin-right: 5px;
+}
+
+
+._r span{
+    color:#e93b3d;
+}
+
+/* 秒杀标题栏结束 */
+
+
+/* 秒杀内容 */
+
+.kill_content{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 秒杀列表 */
+.kill_list{
+    margin-left: 5px;
+    width: 200%;
+}
+
+.kill_item{
+    width: 76.3441px;
+    float: left;
+}
+
+.item_img{
+    width: 100%;
+    padding: 0 0.25rem;
+
+}
+
+.item_img a{
+    display: inline-block;
+}
+
+.item_img img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.item_price{
+    margin:0 auto;
+    text-align: center;
+}
+
+.item_price em{
+    font-size: 11px;
+    padding-right: 2px;
+}
+
+.new_price{
+    font-family: JDZhengHT-EN-Bold;
+    margin-top: 10px;
+    display: block;
+    color: #e93b3d;
+    font-size: 16px;
+    line-height: 16px;
+    height: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.old_price{
+    color: #999;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 4px 0 11px;
+    text-align: center;
+    padding: 0 2px;
+    display: inline-block;
+    position: relative;
+    text-decoration:line-through
+}
+/* 秒杀样式结束 */
+
+
+/* 产品样式 */
+.jd_product{
+    width: 100%;
+    margin-top:10px;
+}
+
+.tit_img{
+    display: inline-block;
+}
+
+.tit_img img{
+    width: 100%;
+    height: 35px;
+}
+
+.product_content{
+    margin:0 0.6rem;
+    background-color: #fff;
+    border-radius: .3rem;
+}
+
+.xy_content{
+    width: 100%;
+}
+
+.xy_item{
+    width: 25%;
+    border-right: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    float: left; 
+    padding: 0 .57rem;
+    padding-bottom: 0.7rem;
+}
+
+.xy_content>.xy_item:last-of-type{
+    border-right: none;
+}
+
+.graphic_text{
+    width: 100%;
+    overflow: initial;
+    position: relative;
+    z-index: 2;
+}
+
+.graphic_tit{
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 2.25rem;
+    display: inline-block;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+
+
+.graphic_img img{
+    width: 5rem;
+    height: 5rem;
+    float: left;
+    margin:.50rem  .65rem 0;
+}
